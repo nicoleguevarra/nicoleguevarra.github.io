@@ -211,9 +211,25 @@
             .profile img { width: 140px; height: 140px; }
         }
 
-        .activity-links {  display: flex;
+        .activity-links { 
+            display: flex;
             flex-direction: column;
             gap: 12px;
+        }
+        
+        .activity-btn {
+            background: linear-gradient(135deg, #a855f7, #d95c8b);
+            color: white;
+            padding: 12px;
+            border-radius: 25px;
+            text-align: center;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .activity-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
 
     </style>
