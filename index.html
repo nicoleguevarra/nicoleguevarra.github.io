@@ -97,6 +97,7 @@
         .contact-btn:hover {
             background: rgba(255,255,255,0.3);
             transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
         /* MAIN CONTENT */
@@ -134,8 +135,8 @@
 
         .card p {
             line-height: 1.7;
-            margin-bottom: 10px;
             color: #444;
+            margin-bottom: 10px;
         }
 
         /* SKILLS */
@@ -201,7 +202,7 @@
             background: #059669;
         }
 
-        /* EXPERIENCE & EDUCATION */
+        /* TIMELINE */
 
         .timeline-item {
             margin-bottom: 25px;
@@ -262,23 +263,28 @@
             font-size: 14px;
         }
 
-        /* BOTTOM NAVIGATION BAR */
+        /* FIXED BOTTOM NAVIGATION BAR */
 
         .bottom-nav {
             position: fixed;
             bottom: 0;
             left: 0;
+            right: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            min-height: 65px;
+            background: rgba(255, 255, 255, 0.97);
             backdrop-filter: blur(15px);
-            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.12);
+            border-top: 2px solid #f3d5e4;
+
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 10px;
-            padding: 15px 10px;
-            z-index: 1000;
-            border-top: 2px solid #f3d5e4;
+
+            padding: 10px 15px;
+            z-index: 9999;
         }
 
         .bottom-nav a {
@@ -298,7 +304,7 @@
             transform: translateY(-3px);
         }
 
-        /* RESPONSIVE DESIGN */
+        /* MOBILE RESPONSIVE */
 
         @media (max-width: 768px) {
 
@@ -325,11 +331,19 @@
                 height: 140px;
             }
 
+            .card {
+                padding: 22px;
+            }
+
+            /* BOTTOM NAV ON MOBILE */
+
             .bottom-nav {
                 justify-content: flex-start;
                 overflow-x: auto;
-                padding: 12px 8px;
+                overflow-y: hidden;
                 gap: 5px;
+                padding: 10px 8px;
+                min-height: 60px;
             }
 
             .bottom-nav a {
@@ -337,8 +351,8 @@
                 padding: 10px 12px;
             }
 
-            .card {
-                padding: 22px;
+            .bottom-nav::-webkit-scrollbar {
+                display: none;
             }
         }
 
@@ -347,9 +361,9 @@
 
 <body>
 
-    <div class="container">
+    <!-- SIDEBAR -->
 
-        <!-- SIDEBAR -->
+    <div class="container">
 
         <div class="sidebar">
 
@@ -415,7 +429,6 @@
                 <h3>SKILLS</h3>
 
                 <div class="skills">
-
                     <span>HTML5</span>
                     <span>CSS3</span>
                     <span>JavaScript</span>
@@ -423,7 +436,6 @@
                     <span>MySQL</span>
                     <span>Networking</span>
                     <span>Git</span>
-
                 </div>
 
             </div>
@@ -450,11 +462,9 @@
                     </p>
 
                     <div class="project-links">
-
                         <a href="#" class="project-btn github-btn">
                             View Code
                         </a>
-
                     </div>
 
                 </div>
@@ -475,11 +485,9 @@
                     </p>
 
                     <div class="project-links">
-
                         <a href="#" class="project-btn github-btn">
                             View Code
                         </a>
-
                     </div>
 
                 </div>
@@ -500,11 +508,9 @@
                     </p>
 
                     <div class="project-links">
-
                         <a href="#" class="project-btn github-btn">
                             View Code
                         </a>
-
                     </div>
 
                 </div>
@@ -551,7 +557,6 @@
 
                 </div>
 
-
                 <div class="timeline-item">
 
                     <h4>Web Design Volunteer</h4>
@@ -589,7 +594,6 @@
 
                 </div>
 
-
                 <div class="timeline-item">
 
                     <h4>Senior High School - STEM</h4>
@@ -606,10 +610,8 @@
             <!-- FOOTER -->
 
             <footer>
-
                 &copy; <span id="year"></span>
                 Kimberly Nicole Yema. All rights reserved.
-
             </footer>
 
         </div>
@@ -617,7 +619,7 @@
     </div>
 
 
-    <!-- BOTTOM NAVIGATION BAR -->
+    <!-- FIXED BOTTOM NAVIGATION -->
 
     <nav class="bottom-nav">
 
@@ -640,7 +642,7 @@
 
     <script>
 
-        // Automatically update copyright year
+        // Automatically update current year
 
         document.getElementById('year').textContent =
             new Date().getFullYear();
