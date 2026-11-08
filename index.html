@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kimberly Nicole Yema - Portfolio</title>
+
     <style>
         * {
             margin: 0;
@@ -11,13 +12,18 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 20px;
+        }
+
         body {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
-            padding: 20px;
+            padding: 20px 20px 100px;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -28,8 +34,9 @@
             display: flex;
             min-height: 90vh;
         }
-        
+
         /* SIDEBAR */
+
         .sidebar {
             width: 320px;
             background: linear-gradient(135deg, #cf8acd, #a855f7);
@@ -40,7 +47,7 @@
             align-items: center;
             text-align: center;
         }
-        
+
         .profile img {
             width: 160px;
             height: 160px;
@@ -49,19 +56,19 @@
             margin-bottom: 20px;
             object-fit: cover;
         }
-        
+
         .sidebar h2 {
             font-size: 1.8em;
             margin-bottom: 10px;
             font-weight: 600;
         }
-        
+
         .sidebar-title {
             font-size: 1.1em;
             opacity: 0.9;
             margin-bottom: 30px;
         }
-        
+
         .contact-buttons {
             display: flex;
             flex-direction: column;
@@ -69,7 +76,7 @@
             width: 100%;
             margin-top: 20px;
         }
-        
+
         .contact-btn {
             background: rgba(255,255,255,0.2);
             color: white;
@@ -86,21 +93,21 @@
             gap: 10px;
             justify-content: center;
         }
-        
+
         .contact-btn:hover {
             background: rgba(255,255,255,0.3);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
-        
+
         /* MAIN CONTENT */
+
         .content {
             flex: 1;
             padding: 40px;
             background: #fafafa;
-            overflow-y: auto;
+            min-width: 0;
         }
-        
+
         .card {
             background: white;
             padding: 30px;
@@ -108,13 +115,14 @@
             margin-bottom: 25px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            scroll-margin-top: 20px;
         }
-        
+
         .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
         }
-        
+
         .card h3 {
             color: #d95c8b;
             font-size: 1.5em;
@@ -123,14 +131,21 @@
             align-items: center;
             gap: 12px;
         }
-        
+
+        .card p {
+            line-height: 1.7;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
         /* SKILLS */
+
         .skills {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
         }
-        
+
         .skills span {
             background: linear-gradient(135deg, #f6d5df, #f3e8ff);
             padding: 10px 18px;
@@ -140,15 +155,16 @@
             color: #7c3aed;
             box-shadow: 0 4px 15px rgba(217, 92, 139, 0.2);
         }
-        
+
         /* PROJECT LINKS */
+
         .project-links {
             display: flex;
             gap: 15px;
             margin-top: 15px;
             flex-wrap: wrap;
         }
-        
+
         .project-btn {
             background: #d95c8b;
             color: white;
@@ -163,24 +179,36 @@
             align-items: center;
             gap: 8px;
         }
-        
+
         .project-btn:hover {
             background: #c94e7a;
             transform: translateY(-2px);
         }
-        
-        .github-btn { background: #333; }
-        .github-btn:hover { background: #555; }
-        .demo-btn { background: #10b981; }
-        .demo-btn:hover { background: #059669; }
-        
+
+        .github-btn {
+            background: #333;
+        }
+
+        .github-btn:hover {
+            background: #555;
+        }
+
+        .demo-btn {
+            background: #10b981;
+        }
+
+        .demo-btn:hover {
+            background: #059669;
+        }
+
         /* EXPERIENCE & EDUCATION */
+
         .timeline-item {
             margin-bottom: 25px;
             padding-left: 30px;
             position: relative;
         }
-        
+
         .timeline-item::before {
             content: '';
             position: absolute;
@@ -190,33 +218,26 @@
             height: 100%;
             background: #d95c8b;
         }
-        
+
         .timeline-item h4 {
             color: #d95c8b;
             margin-bottom: 5px;
         }
-        
+
         .timeline-item .date {
             color: #666;
             font-size: 14px;
             margin-bottom: 8px;
         }
-        
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            body { padding: 10px; }
-            .container { flex-direction: column; border-radius: 15px; }
-            .sidebar { width: 100%; padding: 30px 20px; }
-            .content { padding: 30px 20px; }
-            .profile img { width: 140px; height: 140px; }
-        }
 
-        .activity-links { 
+        /* ACTIVITY */
+
+        .activity-links {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
-        
+
         .activity-btn {
             background: linear-gradient(135deg, #a855f7, #d95c8b);
             color: white;
@@ -232,42 +253,169 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
 
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* BOTTOM NAVIGATION BAR */
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 10px;
+            z-index: 1000;
+            border-top: 2px solid #f3d5e4;
+        }
+
+        .bottom-nav a {
+            text-decoration: none;
+            color: #7c3aed;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 10px 16px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .bottom-nav a:hover {
+            background: linear-gradient(135deg, #a855f7, #d95c8b);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* RESPONSIVE DESIGN */
+
+        @media (max-width: 768px) {
+
+            body {
+                padding: 10px 10px 100px;
+            }
+
+            .container {
+                flex-direction: column;
+                border-radius: 15px;
+            }
+
+            .sidebar {
+                width: 100%;
+                padding: 30px 20px;
+            }
+
+            .content {
+                padding: 25px 15px;
+            }
+
+            .profile img {
+                width: 140px;
+                height: 140px;
+            }
+
+            .bottom-nav {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding: 12px 8px;
+                gap: 5px;
+            }
+
+            .bottom-nav a {
+                font-size: 12px;
+                padding: 10px 12px;
+            }
+
+            .card {
+                padding: 22px;
+            }
+        }
+
     </style>
 </head>
+
 <body>
+
     <div class="container">
+
         <!-- SIDEBAR -->
+
         <div class="sidebar">
+
             <div class="profile">
                 <img src="nicole.jpg" alt="Kimberly Nicole Yema">
             </div>
+
             <h2>Kimberly Nicole Yema</h2>
+
             <p class="sidebar-title">IT Student / Web Developer</p>
-            
+
             <div class="contact-buttons">
-                <a href="https://github.com/nicoleguevarra" target="_blank" class="contact-btn">
-                     GitHub
+
+                <a href="https://github.com/nicoleguevarra"
+                   target="_blank" class="contact-btn">
+                    GitHub
                 </a>
-                <a href="nicoleguevarra014@gmail.com" class="contact-btn">
-                     Email
+
+                <a href="mailto:nicoleguevarra014@gmail.com"
+                   class="contact-btn">
+                    Email
                 </a>
-                <a href="https://www.facebook.com/kimberlynicoleg?mibextid=ZbWKwL" target="_blank" class="contact-btn">
+
+                <a href="https://www.facebook.com/kimberlynicoleg?mibextid=ZbWKwL"
+                   target="_blank" class="contact-btn">
                     Facebook
                 </a>
+
             </div>
+
         </div>
 
-        <!-- CONTENT -->
+
+        <!-- MAIN CONTENT -->
+
         <div class="content">
-            <div class="card">
-                <h3> ABOUT ME</h3>
-                <p>I'm <strong>Kimberly Nicole Yema</strong>, a second-year IT student passionate about creating beautiful and functional websites.</p>
-                <p>Currently learning modern web technologies and building projects to showcase my skills to potential employers.</p>
+
+            <!-- ABOUT ME -->
+
+            <div class="card" id="about">
+
+                <h3>ABOUT ME</h3>
+
+                <p>
+                    I'm <strong>Kimberly Nicole Yema</strong>,
+                    a second-year IT student passionate about
+                    creating beautiful and functional websites.
+                </p>
+
+                <p>
+                    Currently learning modern web technologies
+                    and building projects to showcase my skills
+                    to potential employers.
+                </p>
+
             </div>
 
-            <div class="card">
-                <h3> SKILLS</h3>
+
+            <!-- SKILLS -->
+
+            <div class="card" id="skills">
+
+                <h3>SKILLS</h3>
+
                 <div class="skills">
+
                     <span>HTML5</span>
                     <span>CSS3</span>
                     <span>JavaScript</span>
@@ -275,91 +423,229 @@
                     <span>MySQL</span>
                     <span>Networking</span>
                     <span>Git</span>
+
                 </div>
+
             </div>
 
-            <div class="card">
-                <h3> PROJECTS</h3>
+
+            <!-- PROJECTS -->
+
+            <div class="card" id="projects">
+
+                <h3>PROJECTS</h3>
+
                 <div class="timeline-item">
+
                     <h4>📱 Student Information System</h4>
-                    <p class="date">October 2024 - School Project</p>
-                    <p>Web app for managing student records with search, add, edit, and delete functions using HTML, CSS, JavaScript, and MySQL.</p>
+
+                    <p class="date">
+                        October 2024 - School Project
+                    </p>
+
+                    <p>
+                        Web app for managing student records with
+                        search, add, edit, and delete functions
+                        using HTML, CSS, JavaScript, and MySQL.
+                    </p>
+
                     <div class="project-links">
-                        <a href="#" class="project-btn github-btn"> View Code</a>
+
+                        <a href="#" class="project-btn github-btn">
+                            View Code
+                        </a>
+
                     </div>
+
                 </div>
 
-                 <div class="card">
-            <h3>ACTIVITY</h3>
 
-            <div class="activity-links">
-                <a href="A02/index.html" class="activity-btn">
-                    Assignment A02
-                </a>
-                  </div>
+                <div class="timeline-item">
+
+                    <h4>Online Quiz System</h4>
+
+                    <p class="date">
+                        August 2024 - Class Assignment
+                    </p>
+
+                    <p>
+                        Interactive quiz application with timer,
+                        score tracking, and multiple choice
+                        questions using pure JavaScript.
+                    </p>
+
+                    <div class="project-links">
+
+                        <a href="#" class="project-btn github-btn">
+                            View Code
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <h4>Simple Inventory System</h4>
+
+                    <p class="date">
+                        July 2024 - Mini Project
+                    </p>
+
+                    <p>
+                        Basic inventory management for small store
+                        with product listing, stock tracking,
+                        and low stock alerts.
+                    </p>
+
+                    <div class="project-links">
+
+                        <a href="#" class="project-btn github-btn">
+                            View Code
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACTIVITY -->
+
+            <div class="card" id="activity">
+
+                <h3>ACTIVITY</h3>
+
+                <div class="activity-links">
+
+                    <a href="A02/index.html" class="activity-btn">
+                        Assignment A02
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXPERIENCE -->
+
+            <div class="card" id="experience">
+
+                <h3>EXPERIENCE</h3>
+
+                <div class="timeline-item">
+
+                    <h4>IT Student Assistant</h4>
+
+                    <p class="date">
+                        PUP Sto. Tomas · Jun 2024 - Present
+                    </p>
+
+                    <p>
+                        Help professors with computer lab setup,
+                        troubleshoot student laptops, and assist
+                        in website maintenance.
+                    </p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <h4>Web Design Volunteer</h4>
+
+                    <p class="date">
+                        Church Website Team · Apr 2024 - Jun 2024
+                    </p>
+
+                    <p>
+                        Designed and maintained church website
+                        landing page using HTML/CSS for events
+                        and announcements.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- EDUCATION -->
+
+            <div class="card" id="education">
+
+                <h3>🎓 EDUCATION</h3>
+
+                <div class="timeline-item">
+
+                    <h4>Diploma in Information Technology</h4>
+
+                    <p class="date">
+                        PUP Sto. Tomas Campus · 2024 - 2026
+                    </p>
+
+                    <p>GPA: 1.75 (Excellent)</p>
+
+                </div>
+
+
+                <div class="timeline-item">
+
+                    <h4>Senior High School - STEM</h4>
+
+                    <p class="date">
+                        St. John Academy · 2023 - 2024
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- FOOTER -->
+
+            <footer>
+
+                &copy; <span id="year"></span>
+                Kimberly Nicole Yema. All rights reserved.
+
+            </footer>
+
         </div>
 
+    </div>
 
 
-                
-                
-                <div class="timeline-item">
-                    <h4> Online Quiz System</h4>
-                    <p class="date">August 2024 - Class Assignment</p>
-                    <p>Interactive quiz application with timer, score tracking, and multiple choice questions using pure JavaScript.</p>
-                    <div class="project-links">
-                        <a href="#" class="project-btn github-btn"> View Code</a>
-                    </div>
-                </div>
+    <!-- BOTTOM NAVIGATION BAR -->
 
-                <div class="timeline-item">
-                    <h4> Simple Inventory System</h4>
-                    <p class="date">July 2024 - Mini Project</p>
-                    <p>Basic inventory management for small store with product listing, stock tracking, and low stock alerts.</p>
-                    <div class="project-links">
-                        <a href="#" class="project-btn github-btn"> View Code</a>
-                    </div>
-                </div>
-            </div>
+    <nav class="bottom-nav">
 
-            <div class="card">
-                <h3> EXPERIENCE</h3>
-                <div class="timeline-item">
-                    <h4>IT Student Assistant</h4>
-                    <p class="date">PUP Sto. Tomas · Jun 2024 - Present</p>
-                    <p>Help professors with computer lab setup, troubleshoot student laptops, and assist in website maintenance.</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <h4>Web Design Volunteer</h4>
-                    <p class="date">Church Website Team · Apr 2024 - Jun 2024</p>
-                    <p>Designed and maintained church website landing page using HTML/CSS for events and announcements.</p>
-                </div>
-            </div>
+        <a href="#about">About</a>
 
-            <div class="card">
-                <h3>🎓 EDUCATION</h3>
-                <div class="timeline-item">
-                    <h4>Diploma in Information Technology</h4>
-                    <p class="date">PUP Sto. Tomas Campus · 2024 - 2026</p>
-                    <p>GPA: 1.75 (Excellent)</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <h4>Senior High School - STEM</h4>
-                    <p class="date">St. John Academy · 2023 - 2024</p>
-                </div>
-            </div>
-             <!-- Footer with dynamic copyright -->
-    <footer>
-        &copy; <span id="year"></span> Kimberly Nicole Yema. All rights reserved.
-    </footer>
+        <a href="#skills">Skills</a>
+
+        <a href="#projects">Projects</a>
+
+        <a href="#activity">Activity</a>
+
+        <a href="#experience">Experience</a>
+
+        <a href="#education">Education</a>
+
+    </nav>
+
+
+    <!-- JAVASCRIPT -->
 
     <script>
-        // Dynamically set current year
-        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Automatically update copyright year
+
+        document.getElementById('year').textContent =
+            new Date().getFullYear();
+
     </script>
-        </div>
-    </div>
+
 </body>
 </html>
